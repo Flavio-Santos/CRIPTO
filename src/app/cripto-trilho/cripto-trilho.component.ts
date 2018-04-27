@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-cripto-trilho',
@@ -8,18 +8,43 @@ import { FormsModule } from '@angular/forms';
 })
 export class CriptoTrilhoComponent implements OnInit {
 
-  trilha: String;
-  palavraEncriptada: String;
+  trilha = '';
+  palavraNormal: String = '';
+  palavraEncriptada: any;
+  nivel: number ;
 
   constructor() {
-    this.trilha = ''; 
    }
 
   ngOnInit() {
 
   }
-
+  preencheNivel(evento: KeyboardEvent){
+    this.nivel =  parseInt((<HTMLInputElement>evento.target).value);
+  }
+  preencheString(evento: KeyboardEvent){
+    this.palavraNormal =  (<HTMLInputElement>evento.target).value;
+  }
+  apaga(){
+    this.trilha = '';
+  }
   encripta () {
-    this.palavraEncriptada = this.trilha
+    this.apaga();
+    let aEncriptar = this.palavraNormal;
+    let nivel:number = this.nivel;
+    
+    for(let i = 0 ; i < nivel ; i++ ){
+      let cont = i;
+      for (let index = cont; index <= aEncriptar.length; index+=nivel) {
+        this.trilha += ((aEncriptar.charAt(index)));
+        console.log((aEncriptar.charAt(index)));
+        cont++;
+      }
+    }
+    this.palavraEncriptada = this.trilha;
+    console.log(this.palavraEncriptada)
+  }
+  decripta(chave){
+    
   }
 }

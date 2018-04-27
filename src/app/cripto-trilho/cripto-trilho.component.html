@@ -1,8 +1,15 @@
 
 
 <div class="cripto">
-  <label for="criptoTrilha"></label>
-  <input type="text" name="criptoTrilha" [ngModel]= "trilha" #ctrl="ngModel" id="criptoTrilha">
+  <h3>Transposição de trilho</h3>
+  <label for="criptoTrilha">Numero de niveis</label>
+  <input type="number" name="criptoTrilha" id="criptoTrilha" (keyup)="preencheNivel($event)">
+  
+  <label for="criptoTrilha">Frase a Encriptar</label>
+  <input type="text" name="criptoTrilha" id="criptoTrilha" (keyup)="preencheString($event)">
   <button (click)="encripta()">encript</button>
-  <p>{{palavraEncriptada}}</p>
+  <h5>Frase Normal</h5>
+  <p>{{  palavraNormal  }}</p>
+  <h5>Frase Encriptada</h5>
+  <p>{{  palavraEncriptada  }}</p>
 </div>
