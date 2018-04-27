@@ -13,6 +13,9 @@ export class CriptoTrilhoComponent implements OnInit {
   palavraEncriptada: any;
   nivel: number ;
 
+  palavraParaDecriptar: String;
+  nivelDep: number;
+
   constructor() {
    }
 
@@ -44,7 +47,16 @@ export class CriptoTrilhoComponent implements OnInit {
     this.palavraEncriptada = this.trilha;
     console.log(this.palavraEncriptada)
   }
-  decripta(chave){
+  decripta(){
+    let aDecriptar = this.palavraParaDecriptar;
+    let chave = this.palavraEncriptada;
+
     
+  }
+  pegaFraseEncriptada(evento: KeyboardEvent){
+    this.palavraParaDecriptar =  (<HTMLInputElement>evento.target).value;
+  }
+  pegaNivelDep(evento: KeyboardEvent){
+    this.nivelDep =  parseInt((<HTMLInputElement>evento.target).value);
   }
 }

@@ -13,3 +13,17 @@
   <h5>Frase Encriptada</h5>
   <p>{{  palavraEncriptada  }}</p>
 </div>
+
+<div class="cripto">
+  <h3>Decriptar mensagem</h3>
+  <label for="criptoTrilha">Numero de niveis</label>
+  <input type="number" name="criptoTrilha" id="criptoTrilha" (keyup)="pegaNivelDep($event)">
+  
+  <label for="criptoTrilha">Frase para Decriptar</label>
+  <input type="text" name="criptoTrilha" id="criptoTrilha" (keyup)="pegaFraseEncriptada($event)">
+  <button (click)="decripta()">Decript</button>
+  <h5>Frase Normal</h5>
+  <p>{{  fraseDecriptada  }}</p>
+
+</div>
+
