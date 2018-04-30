@@ -48,7 +48,7 @@ export class CriptoTrilhoComponent implements OnInit {
           pos++;
         }
         matrizCriptada[i] = tempArray;
-
+        console.log(matrizCriptada);
       }
     }
 
@@ -71,13 +71,13 @@ export class CriptoTrilhoComponent implements OnInit {
       for(let j = 0 ; j<array[i].length ; j++){
         this.palavraEncriptada += array[i][j];
       }
-
     }
   }
   numeroParaForFunc(frase, nivel):number{
     if(frase.length%nivel == 0){
+      console.log("é zero");
       return frase.length / nivel;
-    }return (frase.length / nivel) + 1;
+    }console.log("não é zero");return (frase.length / nivel) + 1;
   }
 
   numeroParaForFuncEnc(frase, nivel):number{
@@ -106,6 +106,7 @@ export class CriptoTrilhoComponent implements OnInit {
   }
 
   decripta(){
+
     let validaCaracter: Boolean = this.verificaVazio();;
     let aDecriptar = this.palavraParaDecriptar;
     let mensagem = [];
@@ -150,7 +151,7 @@ export class CriptoTrilhoComponent implements OnInit {
     this.imprimeMensagem(mensagem,this.nivelDep,paraFor);
   }
   imprimeMensagem(array,chave,paraFor){
-    this.palavraEncriptada = '';
+    this.palavraDecriptada = '';
     
     for(let i =0 ; i < paraFor ; i++){
       for(let j = 0 ; j < chave ; j++){
